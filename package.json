@@ -27,5 +27,8 @@
 		"dotenv": "^16.0.3",
 		"express": "^4.18.2",
 		"nodemon": "^2.0.21"
+	},
+	"dependencies": {
+		"react-router-dom": "5.3.4"
 	}
 }
