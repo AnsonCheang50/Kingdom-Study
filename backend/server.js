@@ -13,6 +13,6 @@ app.use(express.urlencoded({ extended: false }));
 
 const routes = require('./routes/routes');
 
-app.use(routes);
+app.use('/api/', routes);
 
 app.listen(PORT, console.log(`Server running at PORT:${PORT}`));
