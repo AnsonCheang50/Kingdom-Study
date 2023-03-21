@@ -1,9 +1,7 @@
 import React from 'react';
 
 const Planner = () => {
-  return (
-	<div>Planner</div>
-  );
+  return <div className="temp">Planner</div>;
 };
 
 export default Planner;

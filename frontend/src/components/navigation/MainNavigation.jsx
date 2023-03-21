@@ -7,7 +7,7 @@ import './MainNavigation.css';
 
 const MainNavigation = (props) => {
   return (
-		<MainHeader>
+		<MainHeader className='main-header'>
 			<h1 className="main-navigation__title">
 				<Link to='/'>logo</Link>
 			</h1>
