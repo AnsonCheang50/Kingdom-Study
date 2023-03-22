@@ -1,6 +1,21 @@
 git:
-	-	git clone https://github.com/AnsonCheang50/Kingdom-Study.git
-	
-	-	git branch (-a)
+	-   Commit with inline message
+			git commit -m "<insert message>"
 
-	-  	git checkout <branch-name>
+	-	Downloads repository from github locally
+			git clone https://github.com/AnsonCheang50/Kingdom-Study.git .
+	
+	-	Shows available branches, -a shows all
+			git branch (-a)
+
+	-  	Switch to branch named <banch-name> 
+			git checkout <branch-name>
+
+	-	Merge your branch into master branch
+			git merge <your-branch>
+	
+
+Download Flow:
+	1.	git clone https://github.com/AnsonCheang50/Kingdom-Study.git .
+	2. 	npm install
+
