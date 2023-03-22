@@ -4,7 +4,7 @@
 DATE=$(date '+%m-%d-%Y') 
 
 # create filename string
-FILE=./admin/logs/"$DATE".txt
+FILE=./utils/logs/"$DATE".txt
 
 # if the file doesn't exist
 if [ ! -f $FILE ]; then

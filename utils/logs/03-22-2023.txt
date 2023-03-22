@@ -4,8 +4,8 @@
 	
 	UTILITIES:
 
-		- admin folder created for logging and task tracking
-			-> newlog.sh script, ran with: './admin/newlog.sh'
+		- utils folder created for logging and task tracking
+			-> newlog.sh script, ran with: './utils/newlog.sh'
 				creates a log for the current day if none exists
 			-> logs folder contains the logs titled by their date
 			-> tasks.txt will function like a to-do list for 
