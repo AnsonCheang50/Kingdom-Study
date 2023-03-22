@@ -6,12 +6,15 @@ import {
 	Switch,
 } from 'react-router-dom';
 
-import Analysis from './pages/Analysis';
-import Game from './pages/Game';
-import LandingPage from './pages/LandingPage';
 import MainNavigation from './components/navigation/MainNavigation';
-import Planner from './pages/Planner';
-import PageNotFound from './pages/PageNotFound';
+import {
+	Analysis,
+	Game,
+	LandingPage,
+	PageNotFound,
+	Planner,
+} from './pages';
+import { Login, Registration } from './pages/auth';
 
 const App = () => {
 	return (
@@ -33,6 +36,12 @@ const App = () => {
 					</Route>
 					<Route path="/error" exact>
 						<PageNotFound />
+					</Route>
+					<Route path="/auth/login">
+						<Login />
+					</Route>
+					<Route path="/auth/register">
+						<Registration />
 					</Route>
 					<Redirect to="/error" />
 				</Switch>

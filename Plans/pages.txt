@@ -10,3 +10,4 @@ SPA Pages:
 		/plan		=>	Planner
 		/game		=> 	Game Page
 		/analysis	=> 	Analytics
+

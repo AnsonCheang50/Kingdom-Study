@@ -1,0 +1,19 @@
+03-22-2023
+
+(Sam):
+
+	UTILITIES:
+
+		- Created logging system:
+			-> .txt files with date for name
+			-> newlog.sh script to make new log file
+				'./newlog.sh' will make new log file 
+				in logs folder for current date
+			-> tasks.txt for list of tasks to be done
+	
+
+	FRONTEND:
+
+		- made auth folder with Login and Registration pages
+		- routed auth components to URLs
+		
