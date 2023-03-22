@@ -1,0 +1,18 @@
+03-22-2023
+
+(Sam):
+	
+	UTILITIES:
+
+		- admin folder created for logging and task tracking
+			-> newlog.sh script, ran with: './admin/newlog.sh'
+				creates a log for the current day if none exists
+			-> logs folder contains the logs titled by their date
+			-> tasks.txt will function like a to-do list for 
+				frontend, backend, unity, utilities, etc.
+		
+	FRONTEND:
+
+		- auth folder added with pages for login and register
+		- auth routing in place for login and register
+		
