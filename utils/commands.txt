@@ -25,3 +25,10 @@ Download Flow:
 	1.	git clone https://github.com/AnsonCheang50/Kingdom-Study.git .
 	2. 	npm install
 
+
+
+ES7+ React/Redux/React-Native snippets
+
+Create new log:
+
+	./utils/newlog.sh <your name>

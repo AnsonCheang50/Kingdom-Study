@@ -21,4 +21,3 @@
 	- Created frontend folder
 		- used 'npx create-react-app .'
 
-3/21/2023
