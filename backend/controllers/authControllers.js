@@ -32,6 +32,29 @@ exports.getUserByID = (req, res) => {
 	}
 };
 
+exports.loginUser = async (req, res) => {
+	const { username, password } = req.body;
+
+	if (!username || !password) {
+		res.status(400);
+		throw new Error('Please add all fields');
+	}
+
+	// Check if user exists
+	const user = await User.findOne({ username });
+
+	if (user) {
+		res.status(200).json({
+			user: user,
+		});
+	} else {
+		res.status(400).json({
+			message: 'User could not be created',
+		});
+	}
+};
+
+
 exports.registerUser = async (req, res) => {
 	const { email, username, password } = req.body;
 
