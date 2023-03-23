@@ -1,33 +1,23 @@
-const User = require('../models/User');
+const { User } = require('../models');
 
-const TEST_USERS = [
-	{
-		id: 1,
-		email: 'email1@email.com',
-		username: 'user1',
-		password: 'password',
-	},
-	{
-		id: 2,
-		email: 'email2@email.com',
-		username: 'user2',
-		password: 'password',
-	},
-];
+exports.getUserByID = async (req, res) => {
+	const { uid } = req.body;
 
-exports.getUserByID = (req, res) => {
-	const userID = req.params.uid;
-	const user = TEST_USERS.find((user) => {
-		return user.id == userID;
-	});
+	if (String(uid).length != 24) {
+		return res.status(400).json({
+			message: 'Invalid uid',
+		});
+	}
+
+	const user = await User.findById(uid);
 
 	if (user) {
 		res.status(200).json({
 			user: user,
 		});
 	} else {
-		res.status(404).json({
-			message: 'user not found',
+		res.status(400).json({
+			message: 'User not found',
 		});
 	}
 };
@@ -44,23 +34,28 @@ exports.loginUser = async (req, res) => {
 	const user = await User.findOne({ username });
 
 	if (user) {
+		if (user.password != password) {
+			return res.status(400).json({
+				message: "Invalid credentials: password doens't match",
+			});
+		}
 		res.status(200).json({
-			user: user,
+			uid: user._id,
 		});
 	} else {
 		res.status(400).json({
-			message: 'User could not be created',
+			message: 'Account not found',
 		});
 	}
 };
-
 
 exports.registerUser = async (req, res) => {
 	const { email, username, password } = req.body;
 
 	if (!email || !username || !password) {
-		res.status(400);
-		throw new Error('Please add all fields');
+		return res.status(400).json({
+			message: 'Please fill out all fields',
+		});
 	}
 
 	// Check if user exists
@@ -68,7 +63,7 @@ exports.registerUser = async (req, res) => {
 
 	if (userExists) {
 		return res.status(400).json({
-			message: 'User already exists'
+			message: 'An account with this email already exists',
 		});
 	}
 
@@ -85,7 +80,7 @@ exports.registerUser = async (req, res) => {
 		});
 	} else {
 		res.status(400).json({
-			message: 'User could not be created',
+			message: 'Account could not be created',
 		});
 	}
 };
