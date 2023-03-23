@@ -4,6 +4,6 @@ const { planControllers } = require('../controllers');
 
 const router = express.Router();
 
-router.get('/', planControllers.testPlanController);
+router.get('/:pid', planControllers.getPlanByID);
 
 module.exports = router;
