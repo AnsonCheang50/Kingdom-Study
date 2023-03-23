@@ -14,6 +14,9 @@ git:
 	-	Merge your branch into master branch
 			git merge <your-branch>
 
+	-	Upload your changes to github
+			git push
+
 	-	Update your local resository with current github repository
 			git pull
 	
@@ -22,4 +25,3 @@ Download Flow:
 	1.	git clone https://github.com/AnsonCheang50/Kingdom-Study.git .
 	2. 	npm install
 
-HELLO IT ME I WAS WONDERING 
