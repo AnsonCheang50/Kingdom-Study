@@ -2,6 +2,11 @@
 
 (Sam):
 	
+	DATABASE:
+
+		- installed mongoose (mongoDB package)
+		- connected mongoDB to backend server
+
 	UTILITIES:
 
 		- utils folder created for logging and task tracking
