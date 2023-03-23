@@ -1,0 +1,85 @@
+Data Models:
+
+	- User
+	- Plan
+	- GameState
+	- Metrics
+
+____________________________________ ________ _____ ___ _ ___ _____ 
+
+User:
+	Attributes:
+		- ID
+		- Email
+		- Username
+		- Password (encrypted)
+
+	Schema:
+			User: {
+				id: {
+					type: int,
+					unique: true
+				},
+				email: {
+					type: string,
+					required: true,
+					unique: true
+				},
+				username: {
+					type: string,
+					required: true,
+					unique: true
+				},
+				password: {
+					type: string,
+					required:true
+				}
+			}
+
+	This works for basic auth, but there is more to the user than
+	their credentials. 
+
+	There are:
+		-> Plans that the user has set in their planner
+		-> the user's GameState to save their game progress
+		-> Metrics to keep track of their productivity and rewards
+		-> Rewards (potentially), these may be able to be derived
+			on the fly from Metrics using a methods
+
+____________________________________ ________ _____ ___ _ ___ _____ 
+
+Plan:
+	Attributes:
+		- title
+		- description
+		- startTime
+		- endTime
+		- date
+		- workingTime
+		- numBreaks
+	
+	Schema:
+
+		Plan: {
+			title: {
+				type: string,
+				required: true
+			},
+			description: string,
+			startTime: {
+				type: Time,
+				required: true
+			},
+			endTime: {
+				type: Time,
+				required: true
+			},
+			date: {
+				type: Date,
+				required: true
+			},
+			workingTime: Time,
+			numBreaks: int
+		}
+
+____________________________________ ________ _____ ___ _ ___ _____ 
