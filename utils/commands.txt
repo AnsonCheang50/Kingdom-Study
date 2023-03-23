@@ -26,9 +26,21 @@ Download Flow:
 	2. 	npm install
 
 
-
-ES7+ React/Redux/React-Native snippets
+code snippets for react:
+	ES7+ React/Redux/React-Native snippets
+	rafce --> creates boilerplate component
 
 Create new log:
-
 	./utils/newlog.sh <your name>
+
+Running servers:
+
+	- run backend server:
+		npm run server
+	
+	- run frontend server:
+		npm run client
+
+	- run both servers simultaneously:
+		npm run dev
+
