@@ -1,3 +1,5 @@
+const User = require('../models/User');
+
 const TEST_USERS = [
 	{
 		id: 1,
@@ -26,6 +28,41 @@ exports.getUserByID = (req, res) => {
 	} else {
 		res.status(404).json({
 			message: 'user not found',
+		});
+	}
+};
+
+exports.postNewUser = async (req, res) => {
+	const { email, username, password } = req.body;
+
+	if (!email || !username || !password) {
+		res.status(400);
+		throw new Error('Please add all fields');
+	}
+
+	// Check if user exists
+	const userExists = await User.findOne({ email });
+
+	if (userExists) {
+		return res.status(400).json({
+			message: 'User already exists'
+		});
+	}
+
+	const user = await User.create({
+		email,
+		username,
+		password,
+	});
+
+	if (user) {
+		res.status(201).json({
+			email: email,
+			username: username,
+		});
+	} else {
+		res.status(400).json({
+			message: 'User could not be created',
 		});
 	}
 };

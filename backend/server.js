@@ -6,12 +6,13 @@ const connectDB = require('./config/db');
 const {authRoutes, planRoutes} = require('./routes');
 
 dotenv.config();
-const PORT = process.env.PORT || 5000;
-
-// Connect mongoDB to server
-connectDB();
 
 const app = express();
+
+const PORT = process.env.PORT || 5000;
+
+// Connect mongoDB to server and listen
+connectDB();
 
 // Middleware
 app.use(express.json());

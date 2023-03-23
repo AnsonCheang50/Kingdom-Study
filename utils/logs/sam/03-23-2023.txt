@@ -6,6 +6,10 @@ BACKEND:
 	
 	- API endpoints created for eventual auth and plan reqs
 
+	- User model created 
+
+	- postNewUser controller added for creating new user in database
+
 
 DATABASE:
 	- Had to reconnect IP address to mongoDB
