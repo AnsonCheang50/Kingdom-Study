@@ -11,9 +11,6 @@ const app = express();
 
 const PORT = process.env.PORT || 5000;
 
-// Connect mongoDB to server and listen
-connectDB();
-
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -22,4 +19,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use('/api/auth/', authRoutes);
 app.use('/api/plan/', planRoutes);
 
-app.listen(PORT, console.log(`Server running at PORT:${PORT}`));
+// Connect mongoDB to server and listen
+(async () => {
+	try {
+		await connectDB();
+		app.listen(PORT, console.log(`Server running at PORT:${PORT}`));
+	} catch (error) {
+		console.error(error);
+	}
+})();

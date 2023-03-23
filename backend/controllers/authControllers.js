@@ -32,7 +32,7 @@ exports.getUserByID = (req, res) => {
 	}
 };
 
-exports.postNewUser = async (req, res) => {
+exports.registerUser = async (req, res) => {
 	const { email, username, password } = req.body;
 
 	if (!email || !username || !password) {
