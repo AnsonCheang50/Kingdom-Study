@@ -1,11 +1,15 @@
 const TEST_USERS = [
 	{
 		id: 1,
-		name: 'user1',
+		email: 'email1@email.com',
+		username: 'user1',
+		password: 'password',
 	},
 	{
 		id: 2,
-		name: 'user2',
+		email: 'email2@email.com',
+		username: 'user2',
+		password: 'password',
 	},
 ];
 
