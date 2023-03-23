@@ -19,4 +19,4 @@ Download Flow:
 	1.	git clone https://github.com/AnsonCheang50/Kingdom-Study.git .
 	2. 	npm install
 
-HELLO FROM ANDY
+HELLO IT ME I WAS WONDERING 
