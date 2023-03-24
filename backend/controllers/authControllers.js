@@ -1,4 +1,6 @@
+const e = require('express');
 const { User } = require('../models');
+
 
 exports.getUserByID = async (req, res) => {
 	const { uid } = req.body;
