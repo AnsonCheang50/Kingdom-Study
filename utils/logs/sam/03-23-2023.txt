@@ -6,6 +6,12 @@ BACKEND:
 	
 	- API endpoints created for eventual auth and plan reqs
 
+	- User model created 
+
+	- registerUser, loginUser, and getUserByID controllers added
+
 
 DATABASE:
 	- Had to reconnect IP address to mongoDB
+
+	- User instances able to be stored and retrieved using database
