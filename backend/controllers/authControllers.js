@@ -10,7 +10,6 @@ exports.getUserByID = async (req, res) => {
 			message: 'Invalid uid',
 		});
 	}
-
 	const user = await User.findById(uid);
 
 	if (user) {
