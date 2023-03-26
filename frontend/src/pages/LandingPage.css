@@ -1,9 +1,9 @@
 .lp-inside-image {
     position: relative;
     display: flex;
-    height: 1000px;
-    width: 1400px;
-    background-image: url("../components/Assets/world.png");
+    height: 672px;
+    width: 1131px;
+    background-image: url("../components/Assets/Image/world.png");
     background-repeat: no-repeat;
     background-size: cover;
 

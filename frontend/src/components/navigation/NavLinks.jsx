@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 import './NavLinks.css';
 
@@ -7,9 +7,9 @@ const NavLinks = (props) => {
 	return (
 		<ul className="nav-links">
 			<li>
-				<NavLink to="/plan">Plan</NavLink>
-				<NavLink to="/game">Game</NavLink>
-				<NavLink to="/analyze">Analyze</NavLink>
+				{props.links.map((link) => {
+					return (<NavLink to = {`/${link}`}>{link.charAt(0).toUpperCase() + link.substring(1)}</NavLink>)
+				})}
 			</li>
 		</ul>
 	);

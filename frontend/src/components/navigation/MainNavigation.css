@@ -1,5 +1,12 @@
+@font-face {
+	font-family: TiltP;
+	src: url("../Assets/Font/TiltFont.ttf");
+}
+
 .main-navigation__title {
 	color: white;
+	font-family: "TiltP";
+	font-size: 200%;
 }
 
 .main-navigation__title a {
@@ -24,7 +31,6 @@
 		display: block;
 	}
 }
-
 nav {
 	margin: 0 2rem;
 }
