@@ -4,7 +4,7 @@
 	"description": "GUI 2 Group Project",
 	"main": "server.js",
 	"scripts": {
-		"start": "node backend/server.js",
+		"start": "cross-env NODE_ENV=production node backend/server.js",
 		"server": "nodemon backend/server.js",
 		"client": "npm start --prefix frontend",
 		"dev": "concurrently \"npm run server\" \"npm run client\""
@@ -28,6 +28,7 @@
 		"nodemon": "^2.0.21"
 	},
 	"dependencies": {
+		"cross-env": "^7.0.3",
 		"mongoose": "^7.0.2"
 	}
 }

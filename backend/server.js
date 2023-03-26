@@ -5,7 +5,9 @@ const dotenv = require('dotenv');
 const connectDB = require('./config/db');
 const { authRoutes, planRoutes } = require('./routes');
 
-dotenv.config();
+dotenv.config({
+	path: './config/config.env',
+});
 
 const app = express();
 
@@ -25,6 +27,12 @@ app.use('/api/plan/', planRoutes);
 		await connectDB();
 	} catch (error) {
 		console.error(error);
+		process.env.exit(1);
 	}
-	app.listen(PORT, console.log(`Server running at PORT:${PORT}`));
+	app.listen(
+		PORT,
+		console.log(
+			`Server running in ${process.env.NODE_ENV} mode at PORT:${PORT}`
+		)
+	);
 })();
