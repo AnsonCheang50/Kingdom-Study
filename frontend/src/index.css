@@ -26,3 +26,15 @@ code {
   width: 35%;
   border-radius: 50px;
 }
+
+.landing-page-container {
+  position: relative;
+  display: flex;
+  padding-top: 3rem;
+}
+
+.lp-inside-image {
+  position: relative;
+  display: flex;
+  padding-top: 3rem;
+}
