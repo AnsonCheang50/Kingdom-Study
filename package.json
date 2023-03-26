@@ -28,7 +28,6 @@
 		"nodemon": "^2.0.21"
 	},
 	"dependencies": {
-		"mongoose": "^7.0.2",
-		"react-router-dom": "5.3.4"
+		"mongoose": "^7.0.2"
 	}
 }
