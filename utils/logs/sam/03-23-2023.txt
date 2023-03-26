@@ -1,0 +1,17 @@
+03-23-2023
+
+BACKEND:
+	- Auth and plan routes and controllers split into separate files
+		-> had to redo this process
+	
+	- API endpoints created for eventual auth and plan reqs
+
+	- User model created 
+
+	- registerUser, loginUser, and getUserByID controllers added
+
+
+DATABASE:
+	- Had to reconnect IP address to mongoDB
+
+	- User instances able to be stored and retrieved using database

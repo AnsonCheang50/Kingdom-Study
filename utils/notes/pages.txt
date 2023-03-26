@@ -1,0 +1,13 @@
+SPA Pages:
+
+	always reachable:
+		/			=>	Landing Page
+
+	only unauthenticated:
+		/auth		=> Signup + Login Forms
+
+	only authenticated:
+		/plan		=>	Planner
+		/game		=> 	Game Page
+		/analysis	=> 	Analytics
+

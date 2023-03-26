@@ -1,0 +1,20 @@
+3-21-2023
+
+(Sam):
+
+	FRONTEND:
+
+		- react project setup: got rid of default App.js page
+			and started from scratch
+	
+		- pages and components folders made for different types of react components
+
+		- all main page components created as placeholders
+
+		- navbar built with links to their corresponding pages
+
+		- in App.js: pages routed to their corresponding URLs
+
+	GIT:
+
+		- spent time figuring out how to work with branches, merging, pushing, etc.

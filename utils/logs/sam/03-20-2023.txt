@@ -1,0 +1,23 @@
+3-20-2023
+
+(Sam):
+
+	- packages installed:
+		- express (node framework)
+		- nodemon and concurrently (for running servers)
+		- dotenv (for working with environment variables)
+		- body-parser (allows access to req.body in http requests)
+		- react-router-dom (for routing pages to URLs)
+	
+	- .env file added for environment variables
+
+	- .gitignore added to for security and preventing unnecessary git commits
+
+	- Created backend folder
+		- used 'npm init' to start node project
+		- made basic server and routes files
+		- controllers folder and file made (MIGHT NOT NEED)
+
+	- Created frontend folder
+		- used 'npx create-react-app .'
+

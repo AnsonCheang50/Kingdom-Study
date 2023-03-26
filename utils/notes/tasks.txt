@@ -1,0 +1,35 @@
+Tasks to be done:
+
+FRONTEND:
+
+	- Conditional navbar
+		-> When logged in show plan game and analyze tabs
+		-> Otherwise show login and register
+
+	- Login and Registration Forms
+		-> For registration: use Axios to send post requests 
+			to backend API with route '/api/register'
+	
+	- Planner structure
+		-> For CRUD with plans: use Axios to send post requests 
+			to backend API with route '/api/planner'
+
+	- Timer
+	- Profile?
+
+
+BACKEND:
+
+	- Create models:
+		-> User
+		-> Planner
+		-> Plan
+		-> GameState
+		-> Analytics
+	
+	- Connect MongoDB
+
+	- Set up routes for 
+		-> registration
+		-> Plan CRUD
+		-> Analytics

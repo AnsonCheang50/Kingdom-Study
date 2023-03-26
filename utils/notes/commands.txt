@@ -1,0 +1,46 @@
+git:
+	-   Commit with inline message
+			git commit -m "<insert message>"
+
+	-	Downloads repository from github locally
+			git clone https://github.com/AnsonCheang50/Kingdom-Study.git .
+	
+	-	Shows available branches, -a shows all
+			git branch (-a)
+
+	-  	Switch to branch named <banch-name> 
+			git checkout <branch-name>
+
+	-	Merge your branch into master branch
+			git merge <your-branch>
+
+	-	Upload your changes to github
+			git push
+
+	-	Update your local resository with current github repository
+			git pull
+	
+	
+Download Flow:
+	1.	git clone https://github.com/AnsonCheang50/Kingdom-Study.git .
+	2. 	npm install
+
+
+code snippets for react:
+	ES7+ React/Redux/React-Native snippets
+	rafce --> creates boilerplate component
+
+Create new log:
+	./utils/newlog.sh <your name>
+
+Running servers:
+
+	- run backend server:
+		npm run server
+	
+	- run frontend server:
+		npm run client
+
+	- run both servers simultaneously:
+		npm run dev
+
