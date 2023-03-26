@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image:  url("../src/components/Assets/starrynight.jpg");
 }
 
 body {
@@ -25,16 +26,4 @@ code {
   margin-inline: auto;
   width: 35%;
   border-radius: 50px;
-}
-
-.landing-page-container {
-  position: relative;
-  display: flex;
-  padding-top: 3rem;
-}
-
-.lp-inside-image {
-  position: relative;
-  display: flex;
-  padding-top: 3rem;
 }
