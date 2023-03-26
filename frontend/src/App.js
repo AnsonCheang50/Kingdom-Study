@@ -18,7 +18,10 @@ import { Login, Registration } from './pages/auth';
 
 const App = () => {
 	const [IsLogin,setIsLogin] = useState(false);
-	const setLogin = () => {}; 
+	const loginSuccess = () => {
+		setIsLogin(true);
+	}; 
+
 	return (
 		<Router>
 			<MainNavigation isLogin = {IsLogin} /> 
@@ -39,11 +42,11 @@ const App = () => {
 					<Route path="/error" exact>
 						<PageNotFound />
 					</Route>
-					<Route path="/auth/login">
-						<Login />
+					<Route path="/login">
+						<Login onLogin = {loginSuccess} />
 					</Route>
-					<Route path="/auth/register">
-						<Registration />
+					<Route path="/register">
+						<Registration onRegister = {loginSuccess} />
 					</Route>
 					<Redirect to="/error" />
 				</Switch>
