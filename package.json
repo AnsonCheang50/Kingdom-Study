@@ -28,7 +28,10 @@
 		"nodemon": "^2.0.21"
 	},
 	"dependencies": {
+		"bcryptjs": "^2.4.3",
+		"cookie-parser": "^1.4.6",
 		"cross-env": "^7.0.3",
+		"jsonwebtoken": "^9.0.0",
 		"mongoose": "^7.0.2",
 		"morgan": "^1.10.0"
 	}

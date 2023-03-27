@@ -7,7 +7,6 @@ const PlanSchema = mongoose.Schema({
 		trim: true,
 		maxlength: [80, 'Title cannot be more than 80 characters'],
 	},
-	slug: String,
 	description: {
 		type: String,
 		required: [true, 'Please add plan description'],
@@ -27,12 +26,16 @@ const PlanSchema = mongoose.Schema({
 	},
 	priority: {
 		type: Number,
+		default: 1,
 		min: [1, 'Priority level must be at least 1'],
 		max: [5, 'Priority level must be at most 5'],
 	},
+	createdAt: {
+		type: Date,
+		default: Date.now,
+	},
 
 	// Attach reference to User
-
 });
 
 module.exports = mongoose.model('Plan', PlanSchema);

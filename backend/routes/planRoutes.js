@@ -10,7 +10,16 @@ const {
 
 const router = express.Router();
 
-router.route('/').get(getPlans).post(createPlan);
-router.route('/:pid').get(getPlan).put(updatePlan).delete(deletePlan);
+const { authorize, protect } = require('../middleware/auth');
+
+router
+	.route('/')
+	.get(getPlans)
+	.post(protect, authorize('contributer', 'admin'), createPlan);
+router
+	.route('/:pid')
+	.get(getPlan)
+	.put(protect, authorize('contributer', 'admin'), updatePlan)
+	.delete(protect, authorize('contributer', 'admin'), deletePlan);
 
 module.exports = router;
