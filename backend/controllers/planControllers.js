@@ -1,30 +1,101 @@
-const TEST_PLANS = [
-	{
-		id: 1,
-		title: 'plan1',
-		description: 'the first test plan',
-	},
-	{	
-		id:2,
-		title: 'plan2',
-		description: 'the second test plan',
-	},
-];
+const { Plan } = require('../models');
 
-exports.getPlanByID= (req, res) => {
-	const planID = req.params.pid;
-	const plan = TEST_PLANS.find((plan) => {
-		return plan.id == planID;
-	});
-
-	if (plan) {
+exports.getPlans = async (req, res, next) => {
+	try {
+		const plans = await Plan.find();
 		res.status(200).json({
-			plan: plan,
+			success: true,
+			count: plans.length,
+			data: plans,
+		});
+	} catch (error) {
+		res.status(400).json({
+			success: false,
+			msg: 'Get all plans failed',
 		});
 	}
-	else {
-		res.status(404).json({
-			message: 'plan not found',
+};
+
+exports.getPlan = async (req, res, next) => {
+	try {
+		const plan = await Plan.findById(req.params.pid);
+
+		if (!plan) {
+			return res.status(400).json({
+				success: false,
+				msg: 'Get plan failed',
+			});
+		}
+		res.status(200).json({
+			success: true,
+			data: plan,
+		});
+	} catch (error) {
+		res.status(400).json({
+			success: false,
+			msg: error.message,
+		});
+	}
+};
+
+exports.createPlan = async (req, res, next) => {
+	try {
+		const plan = await Plan.create(req.body);
+		res.status(201).json({
+			success: true,
+			data: plan,
+		});
+	} catch (error) {
+		res.status(400).json({
+			success: false,
+			msg: error.message,
+		});
+	}
+};
+
+exports.updatePlan = async (req, res, next) => {
+	try {
+		const plan = await Plan.findByIdAndUpdate(req.params.pid, req.body, {
+			new: true,
+			runValidators: true,
+		});
+
+		if (!plan) {
+			return res.status(400).json({
+				success: false,
+				msg: 'Plan not found',
+			});
+		}
+		res.status(200).json({
+			success: true,
+			data: plan,
+		});
+	} catch (error) {
+		res.status(400).json({
+			success: false,
+			msg: error.message,
+		});
+	}
+};
+
+exports.deletePlan = async (req, res, next) => {
+	try {
+		const plan = await Plan.findByIdAndDelete(req.params.pid);
+
+		if (!plan) {
+			return res.status(400).json({
+				success: false,
+				msg: 'Plan not found',
+			});
+		}
+		res.status(200).json({
+			success: true,
+			data: {},
+		});
+	} catch (error) {
+		res.status(400).json({
+			success: false,
+			msg: error.message,
 		});
 	}
 };

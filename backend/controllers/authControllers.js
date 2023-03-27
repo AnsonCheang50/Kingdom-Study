@@ -1,51 +1,55 @@
 const e = require('express');
-const { User } = require('../models');
-
+const { User } = require('../models/User');
 
 exports.getUserByID = async (req, res) => {
-	const { uid } = req.body;
+	try {
+		const user = await User.findById(req.params.uid);
 
-	if (String(uid).length != 24) {
-		return res.status(400).json({
-			message: 'Invalid uid',
-		});
-	}
-	const user = await User.findById(uid);
-
-	if (user) {
+		if (!user) {
+			return res.status(400).json({
+				success: false,
+				message: 'User not found',
+			});
+		}
 		res.status(200).json({
-			user: user,
+			success: true,
+			data: user,
 		});
-	} else {
+	} catch (error) {
 		res.status(400).json({
-			message: 'User not found',
+			success: false,
+			message: error.message,
 		});
 	}
 };
 
 exports.loginUser = async (req, res) => {
-	const { username, password } = req.body;
+	const { usrname, password } = req.body;
 
-	if (!username || !password) {
-		res.status(400);
-		throw new Error('Please add all fields');
+	if (!usrname || !password) {
+		return res.status(400).json({
+			success: false,
+			message: 'Please add all fields',
+		});
 	}
-
-	// Check if user exists
-	const user = await User.findOne({ username });
-
-	if (user) {
-		if (user.password != password) {
-			return res.status(400).json({
-				message: "Invalid credentials: password doens't match",
+	try {
+		// Check if user exists
+		user = await User.findOne({ username: usrname });
+		if (user) {
+			if (user.password != password) {
+				return res.status(400).json({
+					success: false,
+					message: "Invalid credentials: password doesn't match",
+				});
+			}
+			res.status(201).json({
+				success: true,
+				data: user._id,
 			});
 		}
-		res.status(200).json({
-			uid: user._id,
-		});
-	} else {
+	} catch (error) {
 		res.status(400).json({
-			message: 'Account not found',
+			message: error.message,
 		});
 	}
 };

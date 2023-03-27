@@ -1,9 +1,16 @@
 const express = require('express');
 
-const { planControllers } = require('../controllers');
+const {
+	getPlans,
+	getPlan,
+	createPlan,
+	updatePlan,
+	deletePlan,
+} = require('../controllers/planControllers');
 
 const router = express.Router();
 
-router.get('/:pid', planControllers.getPlanByID);
+router.route('/').get(getPlans).post(createPlan);
+router.route('/:pid').get(getPlan).put(updatePlan).delete(deletePlan);
 
 module.exports = router;
