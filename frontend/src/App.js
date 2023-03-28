@@ -10,18 +10,16 @@ import { Analysis, Game, LandingPage, PageNotFound, Planner } from './pages';
 import { Login, Registration } from './pages/auth';
 
 const App = () => {
-	const [isLogin, setIsLogin] = useState(false);
-
-	useEffect(() => {
-		const data = window.localStorage.getItem('isLogin');
-		console.log('page refresh', data);
-		if (data) setIsLogin(data);
-	}, []);
+	const [isLogin, setIsLogin] = useState('');
 
 	useEffect(() => {
 		window.localStorage.setItem('isLogin', isLogin);
-		console.log('islogin useeffect', isLogin);
 	}, [isLogin]);
+
+	useEffect(() => {
+		const data = Boolean(window.localStorage.getItem('isLogin'));
+		if (data) setIsLogin(data);
+	}, [setIsLogin]);
 
 	const login = () => {
 		setIsLogin(true);
@@ -36,7 +34,6 @@ const App = () => {
 			<MainNavigation
 				isLogin={isLogin}
 				onLogout={logout}
-				onLogin={login}
 			/>
 			<main>
 				<Routes>

@@ -6,9 +6,9 @@ import NavLinks from './NavLinks';
 import './MainNavigation.css';
 
 const MainNavigation = (props) => {
-	const LandingPageLinks = ['login', 'register']; //This is how to create an array in js
+	const LandingPageLinks = ['login', 'register'];
 	const OtherLinks = ['plan', 'game', 'analyze'];
-
+	
 	return (
 		<MainHeader className="main-header">
 			<h1 className="main-navigation__title">
@@ -22,7 +22,11 @@ const MainNavigation = (props) => {
 						links={OtherLinks}
 					/>
 				) : (
-					<NavLinks links={LandingPageLinks} />
+					<NavLinks
+						isLogin={props.isLogin}
+						onLogout={props.onLogout}
+						links={LandingPageLinks}
+					/>
 				)}
 			</nav>
 		</MainHeader>
