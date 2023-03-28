@@ -1,15 +1,16 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 import './NavLinks.css';
 
 const NavLinks = (props) => {
+	let keyNum = 1;
 	return (
 		<ul className="nav-links">
 			<li>
-				<NavLink to="/plan">plan</NavLink>
-				<NavLink to="/game">game</NavLink>
-				<NavLink to="/analyze">analyze</NavLink>
+				{props.links.map((link) => {
+					return (<NavLink key = {keyNum++} to = {`/${link}`}>{link.charAt(0).toUpperCase() + link.substring(1)}</NavLink>)
+				})}
 			</li>
 		</ul>
 	);

@@ -1,4 +1,4 @@
-import React from 'react';
+import {React,useState} from 'react';
 import {
 	BrowserRouter as Router,
 	Route,
@@ -17,9 +17,14 @@ import {
 import { Login, Registration } from './pages/auth';
 
 const App = () => {
+	const [IsLogin,setIsLogin] = useState(false);
+	const loginSuccess = () => {
+		setIsLogin(true);
+	}; 
+
 	return (
 		<Router>
-			<MainNavigation />
+			<MainNavigation isLogin = {IsLogin} /> 
 			<main>
 				<Switch>
 					<Route path="/" exact>
@@ -37,11 +42,11 @@ const App = () => {
 					<Route path="/error" exact>
 						<PageNotFound />
 					</Route>
-					<Route path="/auth/login">
-						<Login />
+					<Route path="/login">
+						<Login onLogin = {loginSuccess} />
 					</Route>
-					<Route path="/auth/register">
-						<Registration />
+					<Route path="/register">
+						<Registration onRegister = {loginSuccess} />
 					</Route>
 					<Redirect to="/error" />
 				</Switch>
