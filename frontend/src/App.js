@@ -12,15 +12,12 @@ import { Login, Registration } from './pages/auth';
 const App = () => {
 	const [isLogin, setIsLogin] = useState(false);
 
-	console.log(isLogin);
-
 	const login = () => {
 		setIsLogin(true);
 	};
 
 	const logout = () => {
 		setIsLogin(false);
-		// Reroute on logout => Render LandingPage
 	};
 
 	return (

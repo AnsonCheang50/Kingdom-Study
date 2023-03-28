@@ -1,17 +1,28 @@
-import axios from "axios";
+import axios from 'axios';
 
-const API_URL = "/api/v1/auth/"; 
+const API_URL = 'http://localhost:5000/api/v1/auth';
 
 //register user
 const register = async (userData) => {
+	try {
+		const response = await axios.post(API_URL + '/register', userData);
+		return response;
+	} catch (error) {
+		console.error(error.message);
+	}
+};
 
-    const response = await axios.post(API_URL.userData);
-    console.log(response);
-
+const login = async (userData) => {
+	try {
+		const response = await axios.post(API_URL + '/login', userData);
+		return response;
+	} catch (error) {
+		console.error(error.message);
+	}
 };
 
 const authService = {
-    register,
-
+	register,
+	login,
 };
 export default authService;
