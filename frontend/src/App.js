@@ -1,4 +1,4 @@
-import { React, useState } from 'react';
+import { React, useState, useEffect } from 'react';
 import {
 	BrowserRouter as Router,
 	Route,
@@ -11,6 +11,17 @@ import { Login, Registration } from './pages/auth';
 
 const App = () => {
 	const [isLogin, setIsLogin] = useState(false);
+
+	useEffect(() => {
+		const data = window.localStorage.getItem('isLogin');
+		console.log('page refresh', data);
+		if (data) setIsLogin(data);
+	}, []);
+
+	useEffect(() => {
+		window.localStorage.setItem('isLogin', isLogin);
+		console.log('islogin useeffect', isLogin);
+	}, [isLogin]);
 
 	const login = () => {
 		setIsLogin(true);
