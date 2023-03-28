@@ -1,5 +1,5 @@
 import React from 'react';
-import PlannerList from './PlannerList';
+import PlannerList from '../components/PlannerList';
 import '../pages/Planner.css'
 
 const Planner = () => {
