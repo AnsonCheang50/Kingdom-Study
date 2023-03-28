@@ -6,7 +6,7 @@ import NavLinks from './NavLinks';
 import './MainNavigation.css';
 
 const MainNavigation = (props) => {
-	const LandingPageLinks = ["login"]; //This is how to create an array in js
+	const LandingPageLinks = ["login","register"]; //This is how to create an array in js
 	const OtherLinks = ["plan","game","analyze"]; 
 
 

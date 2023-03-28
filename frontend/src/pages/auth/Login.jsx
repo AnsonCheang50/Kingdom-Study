@@ -9,7 +9,10 @@ const Login = () => {
       username : e.target.username.value,
       password : e.target.password.value
     };
-    console.log(loginData);
+    //Post request to backend
+    //call function onLogin will set the state to true if it is correct
+    //Then nav will change
+    //we will get a tokan if it is true
   };
 
   return (
