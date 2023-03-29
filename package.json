@@ -20,23 +20,20 @@
 		"url": "https://github.com/AnsonCheang50/Kingdom-Study/issues"
 	},
 	"homepage": "https://github.com/AnsonCheang50/Kingdom-Study#readme",
-	"devDependencies": {
+	"devDependencies": {},
+	"dependencies": {
+		"bcryptjs": "^2.4.3",
 		"body-parser": "^1.20.2",
 		"colors": "^1.4.0",
 		"concurrently": "^7.6.0",
 		"dotenv": "^16.0.3",
 		"express": "^4.18.2",
-		"nodemon": "^2.0.21"
-	},
-	"dependencies": {
-		"bcryptjs": "^2.4.3",
+		"nodemon": "^2.0.21",
 		"cookie-parser": "^1.4.6",
 		"cors": "^2.8.5",
 		"cross-env": "^7.0.3",
 		"jsonwebtoken": "^9.0.0",
 		"mongoose": "^7.0.2",
-		"morgan": "^1.10.0",
-		"express": "*",
-		"body-parser": "*"
+		"morgan": "^1.10.0"
 	}
 }
