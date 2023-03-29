@@ -23,7 +23,7 @@
 	"bugs": {
 		"url": "https://github.com/AnsonCheang50/Kingdom-Study/issues"
 	},
-	"homepage": ".",
+	"homepage": "https://safe-hamlet-55575.herokuapp.com/",
 	"devDependencies": {},
 	"dependencies": {
 		"bcryptjs": "^2.4.3",
