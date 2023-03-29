@@ -1,5 +1,8 @@
 const { Plan } = require('../models');
 
+// 	@desc 		Get all plans
+// 	@route		GET /api/v1/plan/
+// 	@access		Public
 exports.getPlans = async (req, res, next) => {
 	try {
 		const plans = await Plan.find();
@@ -16,6 +19,9 @@ exports.getPlans = async (req, res, next) => {
 	}
 };
 
+// 	@desc 		Get single plan by pid
+// 	@route		GET /api/v1/plan/:pid
+// 	@access		Private
 exports.getPlan = async (req, res, next) => {
 	try {
 		const plan = await Plan.findById(req.params.pid);
@@ -38,6 +44,9 @@ exports.getPlan = async (req, res, next) => {
 	}
 };
 
+// 	@desc 		Create plan
+// 	@route		POST /api/v1/plan/
+// 	@access		Private
 exports.createPlan = async (req, res, next) => {
 	try {
 		const plan = await Plan.create(req.body);
@@ -53,6 +62,9 @@ exports.createPlan = async (req, res, next) => {
 	}
 };
 
+// 	@desc 		Update plan
+// 	@route		PUT /api/v1/plan/:pid
+// 	@access		Private
 exports.updatePlan = async (req, res, next) => {
 	try {
 		const plan = await Plan.findByIdAndUpdate(req.params.pid, req.body, {
@@ -78,6 +90,9 @@ exports.updatePlan = async (req, res, next) => {
 	}
 };
 
+// 	@desc 		Delete plan
+// 	@route		DELETE /api/v1/plan/:pid
+// 	@access		Private
 exports.deletePlan = async (req, res, next) => {
 	try {
 		const plan = await Plan.findByIdAndDelete(req.params.pid);
@@ -99,3 +114,11 @@ exports.deletePlan = async (req, res, next) => {
 		});
 	}
 };
+
+
+
+
+
+
+
+

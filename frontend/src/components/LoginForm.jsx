@@ -34,6 +34,7 @@ const LoginForm = (props) => {
 			password: '',
 		});
 		if (response.data.success) {
+			console.log('in login submit handler');
 			props.onLogin();
 			navigate('/plan');
 		}

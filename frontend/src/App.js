@@ -10,16 +10,18 @@ import { Analysis, Game, LandingPage, PageNotFound, Planner } from './pages';
 import { Login, Registration } from './pages/auth';
 
 const App = () => {
-	const [isLogin, setIsLogin] = useState('');
+	const [isLogin, setIsLogin] = useState(false);
 
-	useEffect(() => {
-		window.localStorage.setItem('isLogin', isLogin);
-	}, [isLogin]);
+	// useEffect(() => {
+	// 	const data = Boolean(window.localStorage.getItem('isLogin'));
+	// 	console.log(typeof data);
+	// 	if (data) setIsLogin(data);
+	// }, []);
 
-	useEffect(() => {
-		const data = Boolean(window.localStorage.getItem('isLogin'));
-		if (data) setIsLogin(data);
-	}, [setIsLogin]);
+	// useEffect(() => {
+	// 	window.localStorage.setItem('isLogin', isLogin);
+	// 	console.log(typeof isLogin);
+	// }, [isLogin]);
 
 	const login = () => {
 		setIsLogin(true);
