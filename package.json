@@ -12,7 +12,6 @@
 		"server": "nodemon backend/server.js",
 		"client": "npm start --prefix frontend",
 		"dev": "concurrently \"npm run server\" \"npm run client\"",
-		"heroku-build-deploy": "npm run build && (git add . && git commit -m \"attempting deployment to heroku\") && git push heroku master",
 		"heroku-postpuild": "NODE_ENV=production npm install --prefix frontend && npm run build --prefix frontend"
 	},
 	"repository": {
