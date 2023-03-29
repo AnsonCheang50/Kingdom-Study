@@ -19,7 +19,7 @@
 	"bugs": {
 		"url": "https://github.com/AnsonCheang50/Kingdom-Study/issues"
 	},
-	"homepage": "https://github.com/AnsonCheang50/Kingdom-Study#readme",
+	"homepage": ".",
 	"devDependencies": {},
 	"dependencies": {
 		"bcryptjs": "^2.4.3",
