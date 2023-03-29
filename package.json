@@ -4,6 +4,7 @@
 	"description": "GUI 2 Group Project",
 	"main": "server.js",
 	"scripts": {
+		"build": "(cd frontend && npm run build) && cd ..",
 		"start": "node backend/server.js",
 		"server": "nodemon backend/server.js",
 		"client": "npm start --prefix frontend",

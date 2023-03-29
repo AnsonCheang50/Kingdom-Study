@@ -1,9 +1,5 @@
 import { React, useState, useEffect } from 'react';
-import {
-	HashRouter as Router,
-	Route,
-	Routes,
-} from 'react-router-dom';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 
 import MainNavigation from './components/navigation/MainNavigation';
 import { Analysis, Game, LandingPage, PageNotFound, Planner } from './pages';
@@ -33,10 +29,7 @@ const App = () => {
 
 	return (
 		<Router>
-			<MainNavigation
-				isLogin={isLogin}
-				onLogout={logout}
-			/>
+			<MainNavigation isLogin={isLogin} onLogout={logout} />
 			<main>
 				<Routes>
 					<Route exact path="/" element={<LandingPage />} />
