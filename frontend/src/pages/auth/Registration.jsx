@@ -3,7 +3,7 @@ import RegistrationForm from '../../components/RegistrationForm';
 
 const Registration = (props) => {
 	return (
-	<div className ="registration-form__container">
+	<div className ="form__container">
 		<RegistrationForm />
 	</div>
 	);
