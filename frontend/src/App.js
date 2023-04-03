@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from 'react';
+import { React, useState } from 'react';
 import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 
 import MainNavigation from './components/navigation/MainNavigation';
