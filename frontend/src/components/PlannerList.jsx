@@ -1,25 +1,36 @@
-import { useState } from 'react';
+import * as React from 'react';
+import Paper from '@mui/material/Paper';
+import { ViewState } from '@devexpress/dx-react-scheduler';
+import {
+  Scheduler,
+  DayView,
+  Appointments,
+} from '@devexpress/dx-react-scheduler-material-ui';
+
 //Will need to be deleted and remake
-function PlannerList(props) {
+function PlannerList() {
 
-  const [task, setTask] = useState("");
+  const currentDate = '2018-11-01';
+  const schedulerData = [
+    { startDate: '2018-11-01T09:45', endDate: '2018-11-01T11:00', title: 'Meeting' },
+    { startDate: '2018-11-01T12:00', endDate: '2018-11-01T13:30', title: 'Go to a gym' },
+  ];
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    alert(`The name you entered was: ${task}`);
-  }
   return (
-  <form onSubmit={handleSubmit}>
-    <label>
-      <input 
-        type="text" 
-        value={task}
-        onChange={(e) => setTask(e.target.value)}
+    <Paper>
+    <Scheduler
+      data={schedulerData}
+    >
+      <ViewState
+        currentDate={currentDate}
       />
-    </label>
-    <input type="submit" />
-  </form>
+      <DayView
+        startDayHour={9}
+        endDayHour={14}
+      />
+      <Appointments />
+    </Scheduler>
+  </Paper>
   );
 }
-
 export default PlannerList;
