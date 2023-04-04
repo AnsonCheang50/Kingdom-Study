@@ -1,9 +1,5 @@
 import { React, useState, useEffect } from 'react';
-import {
-	BrowserRouter as Router,
-	Route,
-	Routes,
-} from 'react-router-dom';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 
 import MainNavigation from './components/navigation/MainNavigation';
 import { Analysis, Game, LandingPage, PageNotFound, Planner } from './pages';
@@ -12,16 +8,16 @@ import { Login, Registration } from './pages/auth';
 const App = () => {
 	const [isLogin, setIsLogin] = useState(false);
 
-	useEffect(() => {
-		const data = window.localStorage.getItem('isLogin');
-		console.log('page refresh', data);
-		if (data) setIsLogin(data);
-	}, []);
+	// useEffect(() => {
+	// 	const data = Boolean(window.localStorage.getItem('isLogin'));
+	// 	console.log(typeof data);
+	// 	if (data) setIsLogin(data);
+	// }, []);
 
-	useEffect(() => {
-		window.localStorage.setItem('isLogin', isLogin);
-		console.log('islogin useeffect', isLogin);
-	}, [isLogin]);
+	// useEffect(() => {
+	// 	window.localStorage.setItem('isLogin', isLogin);
+	// 	console.log(typeof isLogin);
+	// }, [isLogin]);
 
 	const login = () => {
 		setIsLogin(true);
@@ -33,11 +29,7 @@ const App = () => {
 
 	return (
 		<Router>
-			<MainNavigation
-				isLogin={isLogin}
-				onLogout={logout}
-				onLogin={login}
-			/>
+			<MainNavigation isLogin={isLogin} onLogout={logout} />
 			<main>
 				<Routes>
 					<Route exact path="/" element={<LandingPage />} />

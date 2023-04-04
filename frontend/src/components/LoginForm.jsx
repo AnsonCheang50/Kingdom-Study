@@ -2,6 +2,7 @@ import { React, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import authService from '../features/Auth/authService';
+import "../pages/auth/AuthForm.css";
 
 const LoginForm = (props) => {
 	const [formData, setFormData] = useState({
@@ -34,13 +35,14 @@ const LoginForm = (props) => {
 			password: '',
 		});
 		if (response.data.success) {
+			console.log('in login submit handler');
 			props.onLogin();
 			navigate('/plan');
 		}
 	};
 
 	return (
-		<form onSubmit={onSubmit}>
+		<form className="auth-form" onSubmit={onSubmit}>
 			<div className="form-controls">
 				<label htmlFor="username">Username:</label>
 				<input

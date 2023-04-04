@@ -15,11 +15,11 @@ const { authorize, protect } = require('../middleware/auth');
 router
 	.route('/')
 	.get(getPlans)
-	.post(protect, authorize('contributer', 'admin'), createPlan);
+	.post(protect, authorize('user', 'contributer', 'admin'), createPlan);
 router
 	.route('/:pid')
 	.get(getPlan)
-	.put(protect, authorize('contributer', 'admin'), updatePlan)
-	.delete(protect, authorize('contributer', 'admin'), deletePlan);
+	.put(protect, authorize('user', 'contributer', 'admin'), updatePlan)
+	.delete(protect, authorize('user', 'contributer', 'admin'), deletePlan);
 
 module.exports = router;

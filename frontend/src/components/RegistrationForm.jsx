@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import authService from '../features/Auth/authService';
 
+import '../pages/auth/AuthForm.css'
+
 const RegistrationForm = () => {
 	const [formData, setFormData] = useState({
 		email: '',
@@ -48,7 +50,7 @@ const RegistrationForm = () => {
 	};
 
 	return (
-		<form onSubmit={onSubmit}>
+		<form className='auth-form' onSubmit={onSubmit}>
 			<div className="form-controls">
 				<label htmlFor="email">Email:</label>
 				<input
