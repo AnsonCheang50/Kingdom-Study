@@ -10,7 +10,17 @@ import {
 //Will need to be deleted and remake
 function PlannerList() {
 
-  const currentDate = '2018-11-01';
+const date = new Date();
+
+let day = date.getDate();
+let month = date.getMonth() + 1;
+let year = date.getFullYear();
+
+// This arrangement can be altered based on how we want the date's format to appear.
+let presentDate = `${day}-${month}-${year}`;
+
+//This CurrentDate is set the the presentDate so we are always on todays date
+  const currentDate = presentDate;
   const schedulerData = [
     { startDate: '2018-11-01T09:45', endDate: '2018-11-01T11:00', title: 'Meeting' },
     { startDate: '2018-11-01T12:00', endDate: '2018-11-01T13:30', title: 'Go to a gym' },
