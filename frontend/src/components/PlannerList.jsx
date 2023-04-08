@@ -20,8 +20,7 @@ let year = date.getFullYear();
 let presentDate = `${month}-${day}-${year}`;
 console.log(presentDate);
 const schedulerData = [
-  { startDate: '2018-11-01T09:45', endDate: '2018-11-01T11:00', title: 'Meeting' },
-  { startDate: '2018-11-01T12:00', endDate: '2018-11-01T13:30', title: 'Go to a gym' },
+  { startDate: '2023-04-07T10:07', endDate: '2023-04-07T10:37', title: 'Meeting' },
 ];
 //This CurrentDate is set the the presentDate so we are always on todays date
 const currentDate = presentDate;
@@ -31,8 +30,17 @@ const handleSubmit = (event) => {
   const title = formData.get('title');
   const date = formData.get('date');
   const time = formData.get('time');
-
-  schedulerData.push(date,time,title);
+  const endTime = formData.get('EndTime');
+  console.log(date);
+  console.log(time);
+  console.log(endTime);
+  const newSchedulerItem = {
+    startDate: date + "T" + time,
+    //endDate: date + "T" + endTime,
+    // title: title,
+  };
+  // Add the new object to the schedulerData array
+  schedulerData.push(newSchedulerItem);
   console.log(schedulerData);
 };
   return (
@@ -70,7 +78,10 @@ function Form(props) {
 
       <label htmlFor="time">Time:</label>
       <input type="time" id="time" name="time"/><br/><br/>
-
+     
+      <label htmlFor="EndTime">EndTime:</label>
+      <input type="time" id="EndTime" name="EndTime"/><br/><br/>
+     
       <input type="submit" value="Submit"/>
     </form>
   );
