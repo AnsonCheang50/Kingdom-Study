@@ -1,0 +1,24 @@
+03-27-2023
+
+
+logo						login register
+
+
+
+
+logo					plan game analyze logout
+
+console.log("FUUUUCK");
+	try {
+		await fetch('http://localhost:5000/api/v1/auth/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(userData),
+			mode: 'no-cors',
+        });
+	} catch (error) {
+		console.error(error.message);
+		process.exit(1);
+	}

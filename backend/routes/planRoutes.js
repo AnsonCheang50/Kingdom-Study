@@ -1,9 +1,25 @@
 const express = require('express');
 
-const { planControllers } = require('../controllers');
+const {
+	getPlans,
+	getPlan,
+	createPlan,
+	updatePlan,
+	deletePlan,
+} = require('../controllers/planControllers');
 
 const router = express.Router();
 
-router.get('/:pid', planControllers.getPlanByID);
+const { authorize, protect } = require('../middleware/auth');
+
+router
+	.route('/')
+	.get(getPlans)
+	.post(protect, authorize('user', 'contributer', 'admin'), createPlan);
+router
+	.route('/:pid')
+	.get(getPlan)
+	.put(protect, authorize('user', 'contributer', 'admin'), updatePlan)
+	.delete(protect, authorize('user', 'contributer', 'admin'), deletePlan);
 
 module.exports = router;

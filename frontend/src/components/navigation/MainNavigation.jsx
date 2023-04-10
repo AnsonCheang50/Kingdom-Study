@@ -6,16 +6,31 @@ import NavLinks from './NavLinks';
 import './MainNavigation.css';
 
 const MainNavigation = (props) => {
-  return (
-		<MainHeader className='main-header'>
+	const LandingPageLinks = ['login', 'register'];
+	const OtherLinks = ['plan', 'game', 'analyze'];
+	
+	return (
+		<MainHeader className="main-header">
 			<h1 className="main-navigation__title">
-				<Link to='/'>logo</Link>
+				<Link to="/">Kingdom Study</Link>
 			</h1>
 			<nav>
-				<NavLinks />
+				{props.isLogin ? (
+					<NavLinks
+						isLogin={props.isLogin}
+						onLogout={props.onLogout}
+						links={OtherLinks}
+					/>
+				) : (
+					<NavLinks
+						isLogin={props.isLogin}
+						onLogout={props.onLogout}
+						links={LandingPageLinks}
+					/>
+				)}
 			</nav>
 		</MainHeader>
-  );
+	);
 };
 
 export default MainNavigation;
