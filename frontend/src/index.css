@@ -47,12 +47,3 @@ code {
   margin: 0;
 }
 
-.temp {
-  font-size: 32pt;
-  text-align: center;
-  padding: 50px;
-  background-color: rgba(83, 157, 226, 0.418);
-  margin-inline: auto;
-  width: 35%;
-  border-radius: 50px;
-}

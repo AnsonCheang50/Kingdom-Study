@@ -5,9 +5,11 @@ import './NavLinks.css';
 
 const NavLinks = ({user, setUser, links}) => {
 	let keyNum = 1;
-	let login = false;
 
-	const onLogout = () => setUser(false);
+	const onLogout = () => {
+		setUser(null);
+		localStorage.removeItem('user');
+	};
 
 	// if (user) login = true;
 

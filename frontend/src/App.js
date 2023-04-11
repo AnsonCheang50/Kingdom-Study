@@ -9,16 +9,7 @@ const App = () => {
 	const [user, setUser] = useState(null);
 	const [token, setToken] = useState(null);
 
-	// useEffect(() => {
-	// 	const data = Boolean(window.localStorage.getItem('isLogin'));
-	// 	console.log(typeof data);
-	// 	if (data) setIsLogin(data);
-	// }, []);
-
-	// useEffect(() => {
-	// 	window.localStorage.setItem('isLogin', isLogin);
-	// 	console.log(typeof isLogin);
-	// }, [isLogin]);
+	
 
 	return (
 		<Router>
