@@ -3,10 +3,10 @@ import { Unity, useUnityContext } from "react-unity-webgl";
 
 const GameUnity = () => {
     const { unityProvider } = useUnityContext({
-        loaderUrl: "../gewr/Build/gewr.loader.js",
-        dataUrl: "../gewr/Build/gewr.data",
-        frameworkUrl: "../gewr/Build/gewr.framework.js",
-        codeUrl: "../gewr/Build/gewr.wasm",
+        loaderUrl: "gewr/Build/gewr.loader.js",
+        dataUrl: "gewr/Build/gewr.data",
+        frameworkUrl: "gewr/Build/gewr.framework.js",
+        codeUrl: "gewr/Build/gewr.wasm",
       });
       return <Unity 
       style={{
