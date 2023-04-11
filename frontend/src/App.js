@@ -6,7 +6,7 @@ import { Analysis, Game, LandingPage, PageNotFound, Planner } from './pages';
 import { Login, Registration } from './pages/auth';
 
 const App = () => {
-	const [isLogin, setIsLogin] = useState(true); //need to be false
+	const [isLogin, setIsLogin] = useState(false); //need to be false
 
 	// useEffect(() => {
 	// 	const data = Boolean(window.localStorage.getItem('isLogin'));

@@ -107,7 +107,7 @@ const Registration = (props) => {
 				<section>
 					<h1>Success!</h1>
 					<p>
-						<NavLink to='/login'>Login</NavLink>
+						<Link to='/login'>Login</Link>
 					</p>
 				</section>
 			) : (
