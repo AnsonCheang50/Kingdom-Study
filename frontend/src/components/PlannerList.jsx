@@ -4,7 +4,11 @@ import { ViewState } from '@devexpress/dx-react-scheduler';
 import {
   Scheduler,
   DayView,
+  WeekView,
   Appointments,
+  Toolbar,
+  ViewSwitcher,
+  MonthView,
 } from '@devexpress/dx-react-scheduler-material-ui';
 
 function PlannerList() {
@@ -14,11 +18,9 @@ function PlannerList() {
   let day = date.getDate();
   let month = date.getMonth() + 1;
   let year = date.getFullYear();
-
   let presentDate = `${month}-${day}-${year}`;
 
   const [schedulerData, setSchedulerData] = useState([
-    { startDate: '2023-04-09T10:07', endDate: '2023-04-09T10:37', title: 'Meeting' },
   ]);
 
   const currentDate = presentDate;
@@ -36,14 +38,19 @@ function PlannerList() {
       title: title,
     };
     setSchedulerData([...schedulerData, newSchedulerItem]);
+    console.log(schedulerData);
   };
 
   return (
     <div>
       <Paper>
-        <Scheduler data={schedulerData}>
+        <Scheduler data={schedulerData} height={660}>
           <ViewState currentDate={currentDate} />
-          <DayView startDayHour={9} endDayHour={14} />
+            <DayView startDayHour={0} endDayHour={24} />
+            <WeekView startDayHour={0} endDayHour={24} />
+            <MonthView startDayHour={0} endDayHour={24} />
+            <Toolbar />
+          <ViewSwitcher />
           <Appointments />
         </Scheduler>
       </Paper>
