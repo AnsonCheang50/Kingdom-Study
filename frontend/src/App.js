@@ -30,7 +30,7 @@ const App = () => {
 	return (
 		<Router>
 			<MainNavigation isLogin={isLogin} onLogout={logout} />
-			<main>
+			<main className='App'>
 				<Routes>
 					<Route exact path="/" element={<LandingPage />} />
 					<Route path="/plan" exact element={<Planner />} />

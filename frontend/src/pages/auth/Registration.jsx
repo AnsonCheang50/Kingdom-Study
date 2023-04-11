@@ -1,4 +1,5 @@
 import { React, useRef, useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import {
 	faCheck,
 	faTimes,
@@ -8,8 +9,7 @@ import {
 	FontAwesomeIcon,
 } from '@fortawesome/react-fontawesome';
 
-// import axios from 'axios';
-import { NavLink } from 'react-router-dom';
+import authService from '../../features/Auth/authService';
 import './Register.css';
 
 const EMAIL_REGEX =
@@ -41,6 +41,8 @@ const Registration = (props) => {
 
 	const [errMsg, setErrMsg] = useState('');
 	const [success, setSuccess] = useState(false);
+
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		userRef.current.focus();
@@ -82,8 +84,21 @@ const Registration = (props) => {
 			setErrMsg('Invalid Entry');
 			return;
 		}
-		console.log('Success!');
-		setSuccess('true');
+
+		try {
+			const response = await authService.register({
+				email,
+				username: user,
+				password: pwd,
+			});
+			setSuccess('true');
+			setEmail('');
+			setUser('');
+			setPwd('');
+			navigate('/login');
+		} catch (error) {
+			console.error(error);
+		}		
 	};
 
 	return (
@@ -181,7 +196,8 @@ const Registration = (props) => {
 							<br />
 							Must begin with a letter
 							<br />
-							Letters, numbers, underscores, hyphens allowed.
+							Letters, numbers, underscores,
+							<br /> hyphens allowed.
 						</p>
 
 						<label htmlFor="password">
@@ -279,7 +295,7 @@ const Registration = (props) => {
 						Already registered?
 						<br />
 						<span className="line">
-							<NavLink to="/login">Login</NavLink>
+							<Link to="/login">Login</Link>
 						</span>
 					</p>
 				</section>

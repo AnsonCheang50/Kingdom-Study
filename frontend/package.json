@@ -3,7 +3,7 @@
 	"version": "0.1.0",
 	"private": true,
 	"homepage": "https://safe-hamlet-55575.herokuapp.com/",
-	"proxy": "https://safe-hamlet-55575.herokuapp.com/",
+	"proxy": "http://localhost:5000",
 	"dependencies": {
 		"@fortawesome/fontawesome-svg-core": "^6.4.0",
 		"@fortawesome/free-solid-svg-icons": "^6.4.0",
