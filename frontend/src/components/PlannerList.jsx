@@ -9,6 +9,9 @@ import {
   Toolbar,
   ViewSwitcher,
   MonthView,
+  AppointmentForm,
+  AppointmentTooltip,
+  ConfirmationDialog,
 } from '@devexpress/dx-react-scheduler-material-ui';
 
 function PlannerList() {
@@ -40,7 +43,6 @@ function PlannerList() {
     setSchedulerData([...schedulerData, newSchedulerItem]);
     console.log(schedulerData);
   };
-
   return (
     <div>
       <Paper>
@@ -52,6 +54,9 @@ function PlannerList() {
             <Toolbar />
           <ViewSwitcher />
           <Appointments />
+          <AppointmentTooltip
+            showDeleteButton
+          />
         </Scheduler>
       </Paper>
       <div>
