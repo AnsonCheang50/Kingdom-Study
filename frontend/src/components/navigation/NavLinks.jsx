@@ -3,11 +3,17 @@ import { NavLink } from 'react-router-dom';
 
 import './NavLinks.css';
 
-const NavLinks = (props) => {
+const NavLinks = ({user, setUser, links}) => {
 	let keyNum = 1;
+	let login = false;
+
+	const onLogout = () => setUser(false);
+
+	// if (user) login = true;
+
 	return (
 		<ul className="nav-links">
-			{props.links.map((link) => {
+			{links.map((link) => {
 				return (
 					<li key={keyNum++}>
 						<NavLink to={`/${link}`}>
@@ -17,8 +23,8 @@ const NavLinks = (props) => {
 				);
 			})}
 			<li key={keyNum}>
-				{props.isLogin && (
-					<NavLink to={'/'} onClick={props.onLogout}>
+				{user && (
+					<NavLink to={'/'} onClick={onLogout}>
 						Logout
 					</NavLink>
 				)}

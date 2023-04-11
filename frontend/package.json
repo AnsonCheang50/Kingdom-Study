@@ -5,6 +5,9 @@
 	"homepage": "https://safe-hamlet-55575.herokuapp.com/",
 	"proxy": "http://localhost:5000",
 	"dependencies": {
+		"@devexpress/dx-react-core": "^4.0.3",
+		"@devexpress/dx-react-scheduler": "^4.0.3",
+		"@devexpress/dx-react-scheduler-material-ui": "^4.0.3",
 		"@fortawesome/fontawesome-svg-core": "^6.4.0",
 		"@fortawesome/free-solid-svg-icons": "^6.4.0",
 		"@fortawesome/react-fontawesome": "^0.2.0",

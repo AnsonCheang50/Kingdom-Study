@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 import authService from '../../features/Auth/authService';
 
-const Login = (props) => {
+const Login = ({ globalUser, setGlobalUser }) => {
 	const userRef = useRef();
 	const errRef = useRef();
 
@@ -34,6 +34,7 @@ const Login = (props) => {
 			console.log(response.data.token);
 			window.localStorage.setItem('user', response?.data.token);
 			const token = response?.data.token;
+			setGlobalUser(user);
 			setUser('');
 			setPwd('');
 			setSuccess(true);
