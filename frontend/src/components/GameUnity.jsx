@@ -19,7 +19,7 @@ const GameUnity = () => {
         <Fragment>
           <Unity 
             style={{
-          width: "60%",
+          width: "80%",
           justifySelf: "center",
           alignSelf: "center",
           }}
