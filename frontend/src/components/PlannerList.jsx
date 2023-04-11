@@ -55,6 +55,7 @@ function PlannerList() {
           <AppointmentTooltip
             showDeleteButton
             showCloseButton
+            showOpenButton
           />
         </Scheduler>
       </Paper>
