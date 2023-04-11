@@ -7,8 +7,8 @@ import './MainNavigation.css';
 
 const MainNavigation = (props) => {
 	const LandingPageLinks = ['login', 'register'];
-	const OtherLinks = ['plan', 'game', 'analyze'];
-	
+	const OtherLinks = ['plan', 'game'];
+
 	return (
 		<MainHeader className="main-header">
 			<h1 className="main-navigation__title">

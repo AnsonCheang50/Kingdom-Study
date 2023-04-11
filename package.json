@@ -24,20 +24,24 @@
 		"url": "https://github.com/AnsonCheang50/Kingdom-Study/issues"
 	},
 	"homepage": "https://safe-hamlet-55575.herokuapp.com/",
-	"devDependencies": {},
 	"dependencies": {
+		"@devexpress/dx-react-core": "^4.0.3",
+		"@devexpress/dx-react-scheduler": "^4.0.3",
+		"@devexpress/dx-react-scheduler-material-ui": "^4.0.3",
 		"bcryptjs": "^2.4.3",
 		"body-parser": "^1.20.2",
 		"colors": "^1.4.0",
 		"concurrently": "^7.6.0",
-		"dotenv": "^16.0.3",
-		"express": "^4.18.2",
-		"nodemon": "^2.0.21",
 		"cookie-parser": "^1.4.6",
 		"cors": "^2.8.5",
 		"cross-env": "^7.0.3",
+		"dotenv": "^16.0.3",
+		"express": "^4.18.2",
 		"jsonwebtoken": "^9.0.0",
 		"mongoose": "^7.0.2",
-		"morgan": "^1.10.0"
+		"morgan": "^1.10.0",
+		"nodemon": "^2.0.21",
+		"react-moment": "^1.1.3",
+		"react-unity-webgl": "^9.4.0"
 	}
 }
