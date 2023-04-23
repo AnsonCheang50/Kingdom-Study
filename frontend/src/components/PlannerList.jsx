@@ -10,6 +10,8 @@ import {
   ViewSwitcher,
   MonthView,
   AppointmentTooltip,
+  TodayButton,
+  DateNavigator,
 } from '@devexpress/dx-react-scheduler-material-ui';
 
 function PlannerList() {
@@ -45,11 +47,13 @@ function PlannerList() {
     <div>
       <Paper>
         <Scheduler data={schedulerData} height={660}>
-          <ViewState currentDate={currentDate} />
+          <ViewState defaultCurrentDate={currentDate} />
             <DayView startDayHour={0} endDayHour={24} />
             <WeekView startDayHour={0} endDayHour={24} />
             <MonthView startDayHour={0} endDayHour={24} />
             <Toolbar />
+          <DateNavigator />
+          <TodayButton />
           <ViewSwitcher />
           <Appointments />
           <AppointmentTooltip
