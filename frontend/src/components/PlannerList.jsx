@@ -43,28 +43,29 @@ function PlannerList() {
     console.log(schedulerData);
   };
   return (
-    <div>
-      <Paper>
-        <Scheduler data={schedulerData} height={660}>
-          <ViewState currentDate={currentDate} />
-            <DayView startDayHour={0} endDayHour={24} />
-            <WeekView startDayHour={0} endDayHour={24} />
-            <MonthView startDayHour={0} endDayHour={24} />
-            <Toolbar />
-          <ViewSwitcher />
-          <Appointments />
-          <AppointmentTooltip
-            showDeleteButton
-            showCloseButton
-            showOpenButton
-          />
-        </Scheduler>
-      </Paper>
-      <div>
-        <h1>My Form</h1>
-        <Form onSubmit={handleSubmit} />
-      </div>
-    </div>
+		<div style={{ display: 'flex' }}>
+			<div style={{ flex: 0.25, paddingRight: '1rem' }}>
+				<Form onSubmit={handleSubmit} />
+			</div>
+			<div style={{ flex: 1, paddingLeft: '1rem' }}>
+				<Paper>
+					<Scheduler data={schedulerData} height={660}>
+						<ViewState currentDate={currentDate} />
+						<DayView startDayHour={0} endDayHour={24} />
+						<WeekView startDayHour={0} endDayHour={24} />
+						<MonthView startDayHour={0} endDayHour={24} />
+						<Toolbar />
+						<ViewSwitcher />
+						<Appointments />
+						<AppointmentTooltip
+							showDeleteButton
+							showCloseButton
+							showOpenButton
+						/>
+					</Scheduler>
+				</Paper>
+			</div>
+		</div>
   );
 }
 
@@ -73,23 +74,23 @@ function Form(props) {
 		<form className="plan-form" onSubmit={props.onSubmit}>
 			<label htmlFor="title">Title:</label>
 			<input type="text" id="title" name="title" />
-			<br />
-			<br />
+			{/* <br />
+			<br /> */}
 
 			<label htmlFor="date">Date:</label>
 			<input type="date" id="date" name="date" />
-			<br />
-			<br />
+			{/* <br />
+			<br /> */}
 
 			<label htmlFor="time">Time:</label>
 			<input type="time" id="time" name="time" />
-			<br />
-			<br />
+			{/* <br />
+			<br /> */}
 
 			<label htmlFor="EndTime">EndTime:</label>
 			<input type="time" id="EndTime" name="EndTime" />
 			<br />
-			<br />
+			
 
 			<input type="submit" value="Submit" />
 		</form>
