@@ -42,7 +42,7 @@ function PlannerList() {
 
   return (
     <div style={{ display: 'flex' }}>
-      <div style={{ flex: 1, paddingRight: '1rem' }}>
+      <div style={{ flex: 0.25, paddingRight: '1rem' }}>
         <h1>My Form</h1>
         <Form onSubmit={handleSubmit} />
       </div>
