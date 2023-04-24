@@ -37,6 +37,7 @@ function PlannerList() {
       startDate: date + "T" + time,
       endDate: date + "T" + endTime,
       title: title,
+      
     };
     setSchedulerData([...schedulerData, newSchedulerItem]);
     console.log(schedulerData);
