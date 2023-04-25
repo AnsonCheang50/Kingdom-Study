@@ -6,7 +6,7 @@ import { Analysis, Game, LandingPage, PageNotFound, Planner } from './pages';
 import { Login, Registration } from './pages/auth';
 
 const App = () => {
-	const [user, setUser] = useState("null");
+	const [user, setUser] = useState(null);
 	const [token, setToken] = useState(null);
 
 	
