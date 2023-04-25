@@ -1,6 +1,10 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { Unity, useUnityContext } from 'react-unity-webgl';
+
+import { setUnloadGame } from '../features/site/siteSlice';
+import { selectCurrentPage } from '../features/site/siteSlice';
 
 const GameUnity = () => {
 	const { unityProvider, unload } = useUnityContext({
@@ -9,8 +13,16 @@ const GameUnity = () => {
 		frameworkUrl: 'gewr/Build/gewr.framework.js',
 		codeUrl: 'gewr/Build/gewr.wasm',
 	});
-
 	const navigate = useNavigate();
+	const page = useSelector(selectCurrentPage);
+
+	const [currPage, setCurrentPage] = useState(page);
+
+	useEffect(() => {
+		if (currPage !== 'game') {
+			unload();
+		}
+	}, [currPage]);
 
 	async function handleClickBack() {
 		await unload();

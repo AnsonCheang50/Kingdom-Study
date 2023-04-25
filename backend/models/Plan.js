@@ -9,7 +9,7 @@ const PlanSchema = mongoose.Schema({
 	},
 	description: {
 		type: String,
-		required: [true, 'Please add plan description'],
+		// required: [true, 'Please add plan description'],
 		maxlength: [500, 'Description cannot be more than 500 characters'],
 	},
 	startTime: {
@@ -34,8 +34,11 @@ const PlanSchema = mongoose.Schema({
 		type: Date,
 		default: Date.now,
 	},
-
-	// Attach reference to User
+	user: {
+		type: mongoose.Schema.ObjectId,
+		ref: 'User',
+		required: true,
+	}
 });
 
 module.exports = mongoose.model('Plan', PlanSchema);

@@ -1,3 +1,4 @@
+const asyncHandler = require('../middleware/async');
 const { Plan } = require('../models');
 
 // 	@desc 		Get all plans
@@ -47,48 +48,39 @@ exports.getPlan = async (req, res, next) => {
 // 	@desc 		Create plan
 // 	@route		POST /api/v1/plan/
 // 	@access		Private
-exports.createPlan = async (req, res, next) => {
-	try {
-		const plan = await Plan.create(req.body);
-		res.status(201).json({
-			success: true,
-			data: plan,
-		});
-	} catch (error) {
-		res.status(400).json({
-			success: false,
-			msg: error.message,
-		});
-	}
-};
+exports.createPlan = asyncHandler(async (req, res, next) => {
+
+	req.body.user = req.user.id;
+
+	const plan = await Plan.create(req.body);
+	
+	res.status(201).json({
+		success: true,
+		data: plan,
+	});
+});
 
 // 	@desc 		Update plan
 // 	@route		PUT /api/v1/plan/:pid
 // 	@access		Private
-exports.updatePlan = async (req, res, next) => {
-	try {
-		const plan = await Plan.findByIdAndUpdate(req.params.pid, req.body, {
-			new: true,
-			runValidators: true,
-		});
+exports.updatePlan = asyncHandler(async (req, res, next) => {
 
-		if (!plan) {
-			return res.status(400).json({
-				success: false,
-				msg: 'Plan not found',
-			});
-		}
-		res.status(200).json({
-			success: true,
-			data: plan,
-		});
-	} catch (error) {
-		res.status(400).json({
+	const plan = await Plan.findByIdAndUpdate(req.params.pid, req.body, {
+		new: true,
+		runValidators: true,
+	});
+
+	if (!plan) {
+		return res.status(400).json({
 			success: false,
-			msg: error.message,
+			msg: 'Plan not found',
 		});
 	}
-};
+	res.status(200).json({
+		success: true,
+		data: plan,
+	});
+});
 
 // 	@desc 		Delete plan
 // 	@route		DELETE /api/v1/plan/:pid

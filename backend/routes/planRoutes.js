@@ -15,7 +15,7 @@ const { authorize, protect } = require('../middleware/auth');
 router
 	.route('/')
 	.get(getPlans)
-	.post(protect, authorize('user', 'contributer', 'admin'), createPlan);
+	.post(protect, createPlan);
 router
 	.route('/:pid')
 	.get(getPlan)

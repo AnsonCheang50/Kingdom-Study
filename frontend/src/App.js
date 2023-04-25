@@ -6,24 +6,33 @@ import { Analysis, Game, LandingPage, PageNotFound, Planner } from './pages';
 import { Login, Registration } from './pages/auth';
 
 const App = () => {
-	const [user, setUser] = useState(null);
+	const [user, setUser] = useState('null');
 	const [token, setToken] = useState(null);
-
-	
 
 	return (
 		<Router>
-			<MainNavigation user={user} setUser={setUser} />
+			<MainNavigation
+				user={user}
+				setUser={setUser}
+			/>
 			<main className="App">
 				<Routes>
 					<Route exact path="/" element={<LandingPage />} />
 					<Route path="/plan" exact element={<Planner />} />
-					<Route path="/game" exact element={<Game />} />
+					<Route
+						path="/game"
+						exact
+						element={<Game />}
+					/>
 					<Route path="/analyze" exact element={<Analysis />} />
 					<Route
 						path="/login"
 						element={
-							<Login setToken={setToken} globalUser={user} setGlobalUser={setUser} />
+							<Login
+								setToken={setToken}
+								globalUser={user}
+								setGlobalUser={setUser}
+							/>
 						}
 					/>
 					<Route path="/register" element={<Registration />} />
