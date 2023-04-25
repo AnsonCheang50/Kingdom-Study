@@ -10,21 +10,20 @@ import {
   ViewSwitcher,
   MonthView,
   AppointmentTooltip,
+  TodayButton,
+  DateNavigator,
 } from '@devexpress/dx-react-scheduler-material-ui';
 
 function PlannerList() {
-
   const date = new Date();
-
   let day = date.getDate();
   let month = date.getMonth() + 1;
   let year = date.getFullYear();
   let presentDate = `${month}-${day}-${year}`;
 
-  const [schedulerData, setSchedulerData] = useState([
-  ]);
+  const [schedulerData, setSchedulerData] = useState([]);
 
-	const currentDate = presentDate;
+  const currentDate = presentDate;
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -40,60 +39,56 @@ function PlannerList() {
       
     };
     setSchedulerData([...schedulerData, newSchedulerItem]);
-    console.log(schedulerData);
   };
+
   return (
-    <div>
-      <Paper>
-        <Scheduler data={schedulerData} height={660}>
-          <ViewState currentDate={currentDate} />
+    <div style={{ display: 'flex' }}>
+      <div style={{ flex: 0.25, paddingRight: '1rem' }}>
+        <h1>My Form</h1>
+        <Form onSubmit={handleSubmit} />
+      </div>
+      <div style={{ flex: 1, paddingLeft: '1rem' }}>
+        <Paper>
+          <Scheduler data={schedulerData} height={660}>
+            <ViewState defaultCurrentDate={currentDate} />
             <DayView startDayHour={0} endDayHour={24} />
             <WeekView startDayHour={0} endDayHour={24} />
             <MonthView startDayHour={0} endDayHour={24} />
             <Toolbar />
-          <ViewSwitcher />
-          <Appointments />
-          <AppointmentTooltip
-            showDeleteButton
-            showCloseButton
-            showOpenButton
-          />
-        </Scheduler>
-      </Paper>
-      <div>
-        <h1>My Form</h1>
-        <Form onSubmit={handleSubmit} />
+            <DateNavigator />
+            <TodayButton />
+            <ViewSwitcher />
+            <Appointments />
+            <AppointmentTooltip
+              showDeleteButton
+              showCloseButton
+              showOpenButton
+            />
+          </Scheduler>
+        </Paper>
       </div>
     </div>
   );
 }
 
 function Form(props) {
-	return (
-		<form className="plan-form" onSubmit={props.onSubmit}>
-			<label htmlFor="title">Title:</label>
-			<input type="text" id="title" name="title" />
-			<br />
-			<br />
+  return (
+    <form onSubmit={props.onSubmit}>
+      <label htmlFor="title">Title:</label>
+      <input type="text" id="title" name="title" /><br /><br />
 
-			<label htmlFor="date">Date:</label>
-			<input type="date" id="date" name="date" />
-			<br />
-			<br />
+      <label htmlFor="date">Date:</label>
+      <input type="date" id="date" name="date" /><br /><br />
 
-			<label htmlFor="time">Time:</label>
-			<input type="time" id="time" name="time" />
-			<br />
-			<br />
+      <label htmlFor="time">Time:</label>
+      <input type="time" id="time" name="time" /><br /><br />
 
-			<label htmlFor="EndTime">EndTime:</label>
-			<input type="time" id="EndTime" name="EndTime" />
-			<br />
-			<br />
+      <label htmlFor="EndTime">EndTime:</label>
+      <input type="time" id="EndTime" name="EndTime" /><br /><br />
 
-			<input type="submit" value="Submit" />
-		</form>
-	);
+      <input type="submit" value="Submit" />
+    </form>
+  );
 }
 
 export default PlannerList;
