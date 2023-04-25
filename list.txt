@@ -1,0 +1,38 @@
+Game State Problems
+
+
+	-	How to access spawned objects
+		-> instantiate()
+		-> referencing
+
+
+
+	-	Game to Backend communication:
+
+			Script C#:  -> gameState = [
+								{
+									buildingType: 1,
+									posX: 0,
+									posY: 1,
+								},
+								{
+									buildingType: 1,
+									posX: 0,
+									posY: 1,
+								},
+							]
+
+			POST localhost:5000/api/v1/game/
+
+			Backend:
+
+				gameState model MongoDB
+
+				ObjectId -> token
+
+			
+			GET localhost:5000/api/v1/game/
+
+			getGameState() -> res 
+
+			HTTP requests C# .NET HTTP client class

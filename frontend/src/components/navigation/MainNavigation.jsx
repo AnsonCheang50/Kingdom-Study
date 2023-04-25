@@ -5,26 +5,26 @@ import MainHeader from './MainHeader';
 import NavLinks from './NavLinks';
 import './MainNavigation.css';
 
-const MainNavigation = (props) => {
+const MainNavigation = ({ user, setUser }) => {
 	const LandingPageLinks = ['login', 'register'];
-	const OtherLinks = ['plan', 'game', 'analyze'];
-	
+	const OtherLinks = ['plan', 'game'];
+
 	return (
 		<MainHeader className="main-header">
 			<h1 className="main-navigation__title">
 				<Link to="/">Kingdom Study</Link>
 			</h1>
 			<nav>
-				{props.isLogin ? (
+				{user ? (
 					<NavLinks
-						isLogin={props.isLogin}
-						onLogout={props.onLogout}
+						user={user}
+						setUser={setUser}
 						links={OtherLinks}
 					/>
 				) : (
 					<NavLinks
-						isLogin={props.isLogin}
-						onLogout={props.onLogout}
+						user={user}
+						setUser={setUser}
 						links={LandingPageLinks}
 					/>
 				)}
